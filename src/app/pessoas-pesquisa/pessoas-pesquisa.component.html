@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="ui-g">
+
+    <div class="ui-g-12">
+      <h2>Pessoas</h2>
+    </div>
+
+  </div>
+
+  <div class="ui-g">
+
+    <div class="ui-g-12 ui-md-6 ui-xl-6 ui-fluid">
+      <label>Nome</label>
+      <div class="ui-inputgroup">
+        <input pInputText type="text" placeholder="Informe um nome...">
+        <button pButton type="button" label="Pesquisar"></button>
+      </div>
+    </div>
+
+    <div class="ui-g-12">
+      <p-dataTable [value]="pessoas" paginator="true" [rows]="5" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" [responsive]="true">
+        <p-column field="nome" header="Nome"></p-column>
+        <p-column field="cidade" header="Cidade"></p-column>
+        <p-column field="estado" header="Estado"></p-column>
+        <p-column field="status" header="Status"></p-column>
+        <p-column styleClass="col-acoes"></p-column>
+      </p-dataTable>
+    </div>
+
+    <div class="ui-g-12">
+      <a pButton label="Nova Pessoa" icon="fa fa-plus-circle"></a>
+    </div>
+
+  </div>
+</div>

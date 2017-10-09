@@ -1,58 +1,62 @@
 <div class="container">
-    <div class="ui-g">
+  <div class="ui-g">
 
-        <div class="ui-g-12">
-            <h2>Lançamentos</h2>
-        </div>
-
-        <div class="ui-g-12 ui-fluid">
-            <label>Descrição</label>
-            <input pInputText type="text" placeholder="Água, Luz, Salário, etc..">
-        </div>
-
-        <div class="ui-g-12">
-            <label style="display: block">Vencimento</label>
-            <input pInputText type="text" placeholder="dd/mm/aaaa" style="width: 105px">
-            <label>até</label>
-            <input pInputText type="text" placeholder="dd/mm/aaaa" style="width: 105px">
-        </div>
-
-        <div class="ui-g-12">
-            <button pButton icon="fa fa-search" type="submit" label="Pesquisar"></button>
-        </div>
-
+    <div class="ui-g-12">
+      <h2>Lançamentos</h2>
     </div>
 
-    <div class="ui-g">
-
-        <div class="ui-g-12">
-            <p-dataTable [value]="lancamentos" paginator="true" [rows]="5" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" [responsive]="true">
-                <p-column field="pessoa" header="Pessoa"></p-column>
-                <p-column field="descricao" header="Descrição"></p-column>
-                <p-column field="dataVencimento" header="Vencimento" styleClass="col-data"></p-column>
-                <p-column field="dataPagamento" header="Pagamento" styleClass="col-data"></p-column>
-                <p-column field="valor" header="Valor" styleClass="col-valor">
-                    <ng-template let-lanc="rowData" pTemplate="body">
-                        <span [style.color]="lanc.tipo === 'DESPESA' ? 'red' : 'blue'">{{lanc.valor}}</span>
-                        <!-- <span [ngStyle]="{ color: lanc.tipo === 'DESPESA' ? 'red' : 'blue' }">{{lanc.valor}}</span> -->
-                    </ng-template>
-                </p-column>
-                <p-column styleClass="col-acoes">
-                    <ng-template pTemplate="header">
-                        <button pButton label="Exportar" icon="fa fa-external-link" class="ui-button-secondary"></button>
-                    </ng-template>
-                    <ng-template pTemplate="body">
-                        <button pButton icon="fa fa-pencil" pTooltip="Editar" tooltipPosition="top"></button>
-                        <button pButton icon="fa fa-trash" pTooltip="Excluir" tooltipPosition="top"></button>
-                    </ng-template>
-                </p-column>
-            </p-dataTable>
-        </div>
-
-        <div class="ui-g-12">
-            <a pButton label="Novo Lançamento" icon="fa fa-plus-circle"></a>
-        </div>
-
+    <div class="ui-g-12 ui-fluid">
+      <label>Descrição</label>
+      <input pInputText type="text" placeholder="Água, Luz, Salário, etc..">
     </div>
+
+    <div class="ui-g-12">
+      <label style="display: block">Vencimento</label>
+      <input pInputText type="text" placeholder="dd/mm/aaaa" style="width: 105px">
+      <label>até</label>
+      <input pInputText type="text" placeholder="dd/mm/aaaa" style="width: 105px">
+    </div>
+
+    <div class="ui-g-12">
+      <button pButton icon="fa fa-search" type="submit" label="Pesquisar"></button>
+    </div>
+
+  </div>
+
+  <div class="ui-g">
+
+    <div class="ui-g-12">
+      <p-dataTable [value]="lancamentos" paginator="true" [rows]="5" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" [responsive]="true">
+        <p-column field="pessoa" header="Pessoa"></p-column>
+        <p-column field="descricao" header="Descrição"></p-column>
+        <p-column field="dataVencimento" header="Vencimento" styleClass="col-data"></p-column>
+        <p-column field="dataPagamento" header="Pagamento" styleClass="col-data"></p-column>
+        <p-column field="valor" header="Valor" styleClass="col-valor">
+          <ng-template let-lanc="rowData" pTemplate="body">
+            <span [ngClass]="lanc.tipo === 'DESPESA' ? 'state-despesa' : 'state-receita'">
+              {{lanc.valor}}
+              <i [ngClass]="lanc.tipo === 'DESPESA' ? 'fa fa-caret-down' : 'fa fa-caret-up'"></i>
+            </span>
+            <!-- <span [style.color]="lanc.tipo === 'DESPESA' ? 'red' : 'blue'">{{lanc.valor}}</span> -->
+            <!-- <span [ngStyle]="{ color: lanc.tipo === 'DESPESA' ? 'red' : 'blue' }">{{lanc.valor}}</span> -->
+          </ng-template>
+        </p-column>
+        <p-column styleClass="col-acoes">
+          <ng-template pTemplate="header">
+            <button pButton label="Exportar" icon="fa fa-external-link" class="ui-button-secondary" pTooltip="Exportar dados" tooltipPosition="top"></button>
+          </ng-template>
+          <ng-template pTemplate="body">
+            <button pButton icon="fa fa-pencil" pTooltip="Editar" tooltipPosition="top"></button>
+            <button pButton icon="fa fa-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+          </ng-template>
+        </p-column>
+      </p-dataTable>
+    </div>
+
+    <div class="ui-g-12">
+      <a pButton label="Novo Lançamento" icon="fa fa-plus-circle"></a>
+    </div>
+
+  </div>
 
 </div>
