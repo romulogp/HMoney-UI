@@ -41,3 +41,12 @@ label {
 .state-receita {
   color: rgb(34, 201, 53);
 }
+
+a {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5b6b7a;
+}
