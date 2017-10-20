@@ -1,0 +1,50 @@
+<div class="container">
+  <form>
+    <div class="ui-g">
+
+      <div class="ui-g-12">
+        <h1>Nova Pessoa</h1>
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+        <label>Nome</label>
+        <input type="text" pInputText placeholder="Nome completo">
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Logradouro</label>
+        <input type="text" pInputText placeholder="Nome da rua">
+      </div>
+      <div class="ui-g-12 ui-md-3 ui-fluid">
+        <label>Número</label>
+        <input type="tel" pInputText placeholder="Nº"
+          currencyMask [options]="{ prefix: '', precision: 0, thousand: '', decimal: '' }">
+      </div>
+
+      <div class="ui-g-12 ui-md-8 ui-fluid">
+        <label>Complemento</label>
+        <input type="text" pInputText placeholder="Fundos, Bloco, Apto 403">
+      </div>
+      <div class="ui-g-12 ui-md-4 ui-fluid">
+        <label>CEP</label>
+        <p-inputMask mask="99999-999" placeholder="00000-000"></p-inputMask>
+      </div>
+
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label>Cidade</label>
+        <input type="text" pInputText placeholder="Cidade">
+      </div>
+      <div class="ui-g-12 ui-md-6 ui-fluid">
+        <label>Estado</label>
+        <input type="text" pInputText placeholder="Estado">
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Salvar" icon="fa fa-save"></button>
+        <button pButton type="submit" label="Novo" icon="fa fa-plus-circle" class="ui-button-info"></button>
+        <a href="javascript:;">Voltar para a pesquisa</a>
+      </div>
+
+    </div>
+  </form>
+</div>
