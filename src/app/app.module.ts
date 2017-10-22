@@ -2,6 +2,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 
 import { InputMaskModule } from 'primeng/components/inputmask/inputmask';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
@@ -37,6 +38,7 @@ import { MessageComponent } from './message/message.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    CustomFormsModule,
     InputMaskModule,
     InputTextModule,
     InputTextareaModule,

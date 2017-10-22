@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form #lancamentoForm="ngForm">
     <div class="ui-g">
       <div class="ui-g-12">
         <h1>Novo Lançamento</h1>
@@ -11,7 +11,9 @@
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label>Vencimento</label>
-        <p-calendar dateFormat="dd/mm/yy" [showIcon]="true" placeholder="dd/mm/aaaa"></p-calendar>
+        <p-calendar dateFormat="dd/mm/yy" [showIcon]="true" placeholder="dd/mm/aaaa"
+          name="vencimento" ngModel #vencimento="ngModel" required></p-calendar>
+        <app-message [control]="vencimento" error="required" text="Informe o vencimento"></app-message>
       </div>
 
       <div class="ui-g-6 ui-md-3 ui-fluid">
@@ -20,7 +22,7 @@
       </div>
 
       <div class="ui-g-12 ui-md-9 ui-fluid">
-        <label>Descrição {{ descricao.errors | json }}</label>
+        <label>Descrição</label>
         <input pInputText type="text" placeholder="Luz, Água, Gasolina, etc. ..."
                name="descricao" ngModel #descricao="ngModel" required minlength="5">
 
@@ -38,7 +40,8 @@
           <span class="ui-inputgroup-addon">R$</span>
           <input pInputText type="text" placeholder="Preço"
             currencyMask [options]="{ prefix: '', thousands: '.', decimal: ','  }"
-            name="valor" ngModel>
+            name="valor" ngModel #valor="ngModel" required>
+          <app-message [control]="valor" error="required" text="Informe o valor"></app-message>
         </div>
       </div>
 
@@ -58,7 +61,7 @@
       </div>
 
       <div class="ui-g-12">
-        <button pButton type="submit" label="Salvar" icon="fa fa-save"></button>
+        <button pButton type="submit" label="Salvar" icon="fa fa-save" [disabled]="lancamentoForm.invalid"></button>
         <button pButton type="submit" label="Novo" icon="fa fa-plus-circle" class="ui-button-info"></button>
         <a href="javascript:;">Voltar para a pesquisa</a>
       </div>
