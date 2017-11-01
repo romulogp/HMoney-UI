@@ -29,10 +29,8 @@
         <input type="tel" pInputText placeholder="Nº"
           currencyMask [options]="{ prefix: '', precision: 0, thousands: '', decimal: '', allowNegative: false }"
           name="numero" ngModel #numero="ngModel" required [min]="0">
-        <!--
         <app-message [control]="numero" error="required" text="Informe o número"></app-message>
         <app-message [control]="numero" error="min" text="Deve ser maior que 0"></app-message>
-        -->
       </div>
 
       <div class="ui-g-12 ui-md-8 ui-fluid">
@@ -44,28 +42,22 @@
         <label>CEP</label>
         <p-inputMask mask="99999-999" placeholder="00000-000"
           name="cep" ngModel #cep="ngModel" required></p-inputMask>
-        <!--
         <app-message [control]="cep" error="required" text="Informe o CEP"></app-message>
-        -->
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Cidade</label>
         <input type="text" pInputText placeholder="Cidade"
           name="cidade" ngModel #cidade="ngModel" required minlength="5">
-        <!--
         <app-message [control]="cidade" error="required" text="Informe a cidade"></app-message>
         <app-message [control]="cidade" error="minlength" text="Deve ter pelo menos {{ cidade.errors?.minlength?.requiredLength }} caracteres"></app-message>
-        -->
       </div>
       <div class="ui-g-12 ui-md-6 ui-fluid">
         <label>Estado</label>
         <input type="text" pInputText placeholder="Estado"
           name="estado" ngModel #estado="ngModel" required minlength="4">
-        <!--
         <app-message [control]="estado" error="required" text="Informe o estado"></app-message>
         <app-message [control]="estado" error="minlength" text="Deve ter pelo menos {{ estado.errors?.minlength?.requiredLength }} caracteres"></app-message>
-        -->
       </div>
 
       <div class="ui-g-12">
